@@ -21,10 +21,8 @@ if config.config_file_name is not None:
 # from myapp import mymodel
 # target_metadata = mymodel.Base.metadata
 
-# SOLUTION
+# Import your Models here in order for them to be visible
 from user.models.user import User
-from album.models.album import Album
-from album_photo.models.album_photo import AlbumPhoto
 
 target_metadata = Base.metadata
 
