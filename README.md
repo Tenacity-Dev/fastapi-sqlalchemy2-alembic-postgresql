@@ -1,5 +1,13 @@
 # FastAPI + SQLAlchemy 2 + Alembic + Postgresql
 
+### The project includes:
+- FastAPI
+- SQLAlchemy 2
+- Alembic
+- PostreSQL
+- Type Safe Environment Variables
+- Feature Based Project Structure like Django's
+
 This is a starter template for creating API's with FastAPI, SQLAlchemy 2, Alembic and Postgresql
 
 The project has env setup. You can view how the config works inside the `/core/config.py` directory, adding new env variables is trivial.
