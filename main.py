@@ -24,8 +24,7 @@ if settings.BACKEND_CORS_ORIGINS:
 
 app.include_router(user_router, prefix='/api')
 
-
-@app.get("/")
+@app.get("/health", tags=['Health Checks'])
 def read_root():
-    return {"Hello": "World"}
+    return {"health": "true"}
 
