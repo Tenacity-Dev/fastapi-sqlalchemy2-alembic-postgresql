@@ -14,7 +14,7 @@ def get_user(db: Session, user_id: int):
 
 def create_user(db: Session, user: UserCreate):
     db_user = User(
-        email=user.email,
+        email=str(user.email),
         username=user.username,
         password=user.password
     )
@@ -26,7 +26,7 @@ def create_user(db: Session, user: UserCreate):
 
 def delete_user(db: Session, user_id: int):
     db_user = db.query(User).filter(User.id == user_id).first()
-    db.delete(db_user)
-    db.commit()
-    db.refresh(db_user)
+    if db_user:
+        db.delete(db_user)
+        db.commit()
     return
