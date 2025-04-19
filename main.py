@@ -1,15 +1,21 @@
 from fastapi import FastAPI
-from core.config import Settings
 from starlette.middleware.cors import CORSMiddleware
-
-from core.database import Base, engine
+from core.config_loader import settings
 
 from user.routes.user_router import user_router
 
-Base.metadata.create_all(bind=engine)
+openapi_tags = [
+    {
+        "name": "Users",
+        "description": "User operations",
+    },
+    {
+        "name": "Health Checks",
+        "description": "Application health checks",
+    }
+]
 
-settings = Settings()
-app = FastAPI()
+app = FastAPI(openapi_tags=openapi_tags)
 
 if settings.BACKEND_CORS_ORIGINS:
     app.add_middleware(
@@ -22,7 +28,7 @@ if settings.BACKEND_CORS_ORIGINS:
         allow_headers=["*"],
     )
 
-app.include_router(user_router, prefix='/api')
+app.include_router(user_router, prefix='/api', tags=['Users'])
 
 @app.get("/health", tags=['Health Checks'])
 def read_root():
