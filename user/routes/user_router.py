@@ -34,6 +34,7 @@ def user_delete(user_id: int, db: Session = Depends(get_db)):
     if db_user is None:
         raise HTTPException(status_code=404, detail="User not found")
 
+    delete_user(db, db_user.id)
     return {"message": "User deleted"}
 
 
