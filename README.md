@@ -18,7 +18,7 @@ The project is also has a feature based architecture setup for you so that you h
 
 Clone the repository:
 ```
-https://github.com/Tenacity-Dev/fastapi-sqlalchemy2-alembic-postgresql.git
+git clone https://github.com/Tenacity-Dev/fastapi-sqlalchemy2-alembic-postgresql.git
 ```
 
 cd into the repository:
@@ -28,7 +28,7 @@ cd fastapi-sqlalchemy2-alembic-postgresql
 
 To make this repository yours:
 ```
-rm -rf .git && git init && npm init
+rm -rf .git && git init
 git add .
 git commit -m "Initial commit"
 ```
